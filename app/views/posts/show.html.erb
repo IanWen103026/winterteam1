@@ -1,0 +1,8 @@
+<h1> <%=@post.title%> </h1>
+<div>
+    <%=@post.body%>
+    <h1> Edit Post</h1>
+    <%= render partial: "form", locals: {post: @post}%>
+    <%=button_to "Edit", edit_post_path(@post), method: :get%>
+    <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+</div>

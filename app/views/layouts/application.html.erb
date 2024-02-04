@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OsForum</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+
+    
+  </head>
+
+  <body>
+  <% if user_signed_in? %> 
+<div>              
+  <h3><%=link_to "Logout", destroy_user_session_path %></h3>
+</div>
+<div>              
+  <h3><%=link_to "Profile", edit_user_registration_path, method: "delete"%></h3>
+</div>
+<% else %>
+<div>              
+  <h3><%=link_to "Login", new_user_session_path%></h3>
+</div>
+<div>      
+  <h3><%=link_to "SignUp", new_user_registration_path%></h3>
+</div>
+<% end %>        
+<h1><%=link_to "Blog", root_path %></h1>
+    <%= yield %>
+  </body>
+</html>
