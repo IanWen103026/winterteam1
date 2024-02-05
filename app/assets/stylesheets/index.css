@@ -1,0 +1,522 @@
+main .left h2 {
+  margin-bottom: 2.7rem;
+  font-size: var(--fs24);
+  color: var(--lightBlackColor);
+}
+
+main .left .inner-left .box {
+  display: flex;
+  align-items: center;
+  background-color: var(--whiteColor);
+  padding: 0.9rem 1.2rem;
+  border-radius: 0.7rem;
+  margin-bottom: 0.9rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.11),
+    0 0.1rem 0.1rem rgba(0, 0, 0, 0.04);
+}
+
+main .left .inner-left .box2 {
+  display: flex;
+  align-items: center;
+  color: var(--lightBlackColor);
+  background-color: var(--whiteColor);
+  padding: 0.9rem 1.2rem;
+  border-radius: 0.7rem;
+  margin-bottom: 0.9rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.11),
+    0 0.1rem 0.1rem rgba(0, 0, 0, 0.04);
+}
+
+main .left .inner-left .box .img {
+  display: none;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+main .left .inner-left .box .details {
+  padding-left: 1.2rem;
+}
+
+main .left .inner-left .box .details p {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  color: var(--darkGrayColor);
+}
+
+main .left .inner-left .box .details h3 {
+  font-weight: 700;
+  color: var(--darkRedColor);
+  font-size: var(--fs18);
+  letter-spacing: -0.02em;
+}
+
+main .left .inner-left .box .details .sub-details {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+main .left .inner-left .box .details .sub-details span {
+  color: var(--darkGrayColor);
+}
+
+main .left .inner-left .box .details .sub-details .comment {
+  padding: 0.2rem 0.8rem 0;
+  background-color: var(--lightWhiteColor);
+  color: var(--darkGrayColor);
+  font-size: 1.3rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.3rem;
+}
+
+main .right {
+  display: none;
+}
+
+main .right .box {
+  padding: 1.8rem;
+  border-radius: 0.7rem;
+  margin-bottom: 0.9rem;
+  background-color: var(--whiteColor);
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.11),
+    0 0.1rem 0.1rem rgba(0, 0, 0, 0.04);
+}
+
+main .right .first h3 {
+  text-transform: capitalize;
+  font-size: var(--fs24);
+  line-height: 2.7rem;
+  margin-bottom: 0.5rem;
+  color: var(--lightBlackColor);
+}
+
+main .right .first span {
+  display: block;
+  color: var(--darkGrayColor);
+  text-transform: capitalize;
+  font-size: var(--fs14);
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.01rem;
+}
+
+main .right .first p {
+  font-size: var(--fs14);
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+  color: var(--darkGrayColor);
+  max-height: 23rem;
+}
+
+main .right .first .stats {
+  display: flex;
+  align-items: center;
+}
+
+main .right .first .stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+main .right .first .stats div:first-of-type {
+  border-right: 0.1rem solid var(--mediumGray);
+  padding-right: 2.7rem;
+}
+
+main .right .first .stats div:last-of-type {
+  margin-left: 2.7rem;
+}
+
+main .right .first .stats div h4 {
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: -0.3rem;
+  color: var(--lightBlackColor);
+}
+
+main .right .first .stats div span {
+  text-transform: lowercase;
+  font-size: var(--fs14);
+  color: var(--darkGrayColor);
+  letter-spacing: -0.1px;
+}
+
+main .right .first .buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+main .right .first .buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 2rem;
+  min-width: 8rem;
+  text-transform: capitalize;
+  transition: var(--transition);
+}
+
+main .right .first .buttons .btn-red {
+  margin: 1.2rem 0;
+}
+
+main .right .top-forums h3,
+main .right .top-contributors h3,
+main .right .recommended-communities h3 {
+  font-size: var(--fs18);
+  font-weight: 700;
+  text-transform: capitalize;
+  color: var(--lightBlackColor);
+}
+main .right .top-forums > a,
+main .right .top-contributors > a {
+  display: block;
+  font-size: var(--fs14);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+main .right .top-forums a i {
+  margin-left: 0.4rem;
+}
+
+main .right .top-forums .inner-box:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+main .right .top-forums .inner-box h4 a {
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+main .right .top-forums .inner-box .stats {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+main .right .top-forums .inner-box .stats .stat {
+  flex: 0 0 10rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--darkGrayColor);
+}
+
+main .right .top-forums .inner-box .stats .stat i {
+  font-size: 1.6rem;
+}
+
+main .right .top-contributors .inner-box,
+main .right .recommended-communities .inner-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+main .right .top-contributors .inner-box .img,
+main .right .recommended-communities .inner-box .img {
+  width: 3.6rem;
+  height: 3.6rem;
+  overflow: hidden;
+}
+
+main .right .top-contributors .inner-box .img img,
+main .right .recommended-communities .inner-box .img img {
+  border-radius: 15%;
+}
+
+main .right .top-contributors .inner-box .details,
+main .right .recommended-communities .inner-box .details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.9rem;
+}
+
+main .right .top-contributors .inner-box .details a,
+main .right .recommended-communities .inner-box .details a {
+  font-weight: 500;
+}
+
+main .right .top-contributors .inner-box .details span,
+main .right .recommended-communities .inner-box .details span {
+  font-size: var(--fs14);
+  color: var(--darkGrayColor);
+}
+
+main .right .recommended-communities h3 {
+  margin-bottom: 0.5rem;
+}
+
+/*Overlay*/
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: rgba(0 0 0 / 0.35);
+  transition: var(--transition);
+  padding: 0 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.login {
+  position: relative;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  background-color: var(--whiteColor);
+  max-width: 80rem;
+  width: 100%;
+  margin: 4rem auto 1rem;
+  margin-top: 25vh;
+  box-shadow: 0 0.5rem 1.5rem 0 rgba(0 0 0 / 0.5);
+  overflow: hidden;
+}
+
+.login .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.login .top h2 {
+  font-size: 2.7rem;
+  color: var(--lightBlackColor);
+}
+
+.login .top i {
+  font-size: var(--fs24);
+  color: var(--darkGrayColor);
+  cursor: pointer;
+}
+
+.login .row .content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.login .row .content .login-left,
+.login .row .content .login-right {
+  flex: 1;
+}
+
+.login .row .content .login-left {
+  position: relative;
+  padding-top: 3rem;
+  order: 3;
+}
+
+.login .row .content .login-left form input:not([type="checkbox"]) {
+  display: block;
+  color: var(--lightWhiteColor);
+  background-color: #f6f6f6;
+  border: 0.1rem;
+  border-color: #cbcbcb;
+  border-radius: 0.3rem;
+  font-size: 1.6rem;
+  padding: 1rem 1.5rem;
+  width: 104%;
+  line-height: 1.4;
+}
+
+.login .row .content .login-left form .form-group {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.login .row .content .login-left form .form-group div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  gap: 0.5rem;
+  height: 100%;
+  padding-left: 1rem;
+  border-left: 0.1rem solid #dfdfdf;
+  cursor: pointer;
+}
+
+.login .row .content .login-left form a {
+  display: block;
+  margin-top: 1rem;
+}
+
+.login .row .content .login-left .remember {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login .row .content .login-left .remember label {
+  color: var(--lightBlackColor);
+}
+
+.login .row .content .login-left .btn,
+.login .row .content .login-right .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login .row .content .login-left .btn-red {
+  min-width: 8rem;
+  margin-top: 3rem;
+  width: 104%;
+  transition: var(--transition);
+}
+
+.login .row .content .login-right {
+  order: 1;
+  padding-bottom: 3rem;
+}
+
+.login .row .content .line {
+  position: relative;
+}
+
+.login .row .content .line::before {
+  content: "";
+  position: absolute;
+  top: 11rem;
+  left: 0;
+  width: 100%;
+  height: 0.1rem;
+  background: var(--darkGrayColor);
+  right: 0;
+}
+
+.login .row .content .line::after {
+  content: "or";
+  position: absolute;
+  top: 9rem;
+  right: calc(50% - 2rem);
+  color: var(--darkGrayColor);
+  background: var(--whiteColor);
+  padding: 1rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.login .row .content .login-right .btn {
+  display: flex;
+  background: transparent;
+  padding: 1.2rem 1.5rem;
+  border: 0.1rem solid var(--darkGrayColor);
+  color: var(--darkGrayColor);
+}
+
+.login .row .content .login-right .btn:first-of-type {
+  margin-bottom: 1rem;
+}
+
+.login .row .content .login-right .btn i {
+  color: #3b5998;
+  background-color: var(--whiteColor);
+  font-size: 2rem;
+}
+
+.login .row .content .login-right .btn span {
+  flex: auto;
+}
+
+.login .row .content .login-right .btn img {
+  width: 2rem;
+}
+
+.login .row .content .login-right .btn:hover {
+  background-color: rgba(104, 108, 110, 0.1);
+}
+
+.login .row .bottom {
+  text-align: center;
+  padding: 1rem;
+  background-color: #e3e7e9;
+  margin-top: 1rem;
+  margin-inline: -1rem;
+  margin-bottom: -1rem;
+}
+
+.login .row .bottom h4 {
+  font-weight: 400;
+}
+
+.login .row .bottom a {
+  text-transform: capitalize;
+}
+
+@media (min-width: 649px) {
+  main .left .inner-left .box .img {
+    display: block;
+  }
+
+  .login .row .content {
+    position: relative !important;
+    flex-direction: row;
+  }
+
+  .login .row .content .login-left {
+    order: 1;
+    padding-right: 3rem;
+    padding-top: 0;
+  }
+
+  .login .row .content .login-right {
+    order: 3;
+    padding-left: 3rem;
+    padding-bottom: 0;
+  }
+
+  .login .row .content .line {
+    order: 2;
+  }
+
+  .login .row .content .line::before {
+    width: 0.1rem;
+    height: 100%;
+    inset: 0;
+  }
+
+  .login .row .content .line::after {
+    left: -2rem;
+  }
+}
+
+@media (min-width: 910px) {
+  main .row {
+    display: flex;
+  }
+
+  main .row .left {
+    flex: auto;
+  }
+
+  main .row .right {
+    display: block;
+    flex-shrink: 0;
+    width: 30rem;
+    margin-left: 1.8rem;
+    padding-top: 6.4rem;
+  }
+}

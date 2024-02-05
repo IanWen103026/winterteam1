@@ -1,11 +1,23 @@
+      
 <%= form_with model: @post do |form| %>
     <div>
-        <%=form.label :title%>
+    
+        <%=form.label :title %> 
+        <br>
         <%=form.text_field :title %>
     </div>
     <div>
         <%=form.label :body%>
+        <br>
         <%=form.text_area :body %>
     </div>
+    <div class="field">
+  <%= form.label :category_id, "Category" %>
+  <% if @categories %>
+    <%= form.collection_select :category_id, @categories, :id, :name, prompt: "Select a category" %>
+  <% else %>
+  <% end %>
+</div>
+
     <%= form.button %>
 <%end%>

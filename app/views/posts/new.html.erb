@@ -1,3 +1,160 @@
-<h1>New Post</h1>
 
-<%= render partial: "form", locals: {post: @post}%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag 'general' %>
+    <%= stylesheet_link_tag 'header' %>
+    <%= stylesheet_link_tag 'index' %>
+    <%= stylesheet_link_tag 'footer' %>
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="row">
+        <div class="container">
+          <div class="header-content">
+
+          
+            <div class="logo">
+            <a href="/"><img  src="https://cdn.discordapp.com/attachments/1158924708352364596/1203662641277444176/image.png?ex=65d1e930&is=65bf7430&hm=b582b249ddbae6113c14a42216010ff80e0b4352d7e7246e947dd19e84356e37&" alt="logo"/></a>
+            </div>
+            <div class="nav-group">
+              <ul>
+                <li>
+                  <a href="#"><i class="fa-solid fa-comment"></i></a>
+                </li>
+
+                
+
+                <li class="join">
+
+
+                    
+                    <h1></h1>
+
+                  <a href="#">  
+                    <% if user_signed_in? %> 
+                                 
+                    <span><%=link_to "登出", destroy_user_session_path, method: :delete%></span>
+                    <i class="fa-solid fa-user"><%=link_to "", edit_user_registration_path%></i>
+                          
+                    <% else %>
+                        
+                    <span><%=link_to "登入", new_user_session_path%></span>
+                    <span><%=link_to "註冊", new_user_registration_path%></span>
+                    <% end %>  
+
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <section class="left">
+            <h2>新建貼文</h2>
+            
+
+
+            <div class="inner-left">
+              
+                <div class="box2">
+                
+                <%= render partial: "form", locals: {post: @post}%>
+
+                </div>
+            </div>
+          </section>
+          <section class="right">
+            <div class="box first">
+              <h3>One Small Forum</h3>
+              <span>2024 創立</span>
+              <p>
+                歡迎你來到"一小論壇"，在這裡你可以發文與大家互動，表達你的想法，分享你的生活！
+                快註冊帳號發送你的第一篇文章吧！
+              </p>
+              <div class="stats">
+              <div>
+              <% post_count = @posts.count %>
+                <h4><%= post_count %></h4>
+                <span>貼文</span>
+              </div>
+              <div>
+                <h4><%= User.count %></h4>
+                <span>使用者</span>
+              </div>
+            </div>
+
+            </div>
+            <div class="box top-forums">
+            <h3>各種話題</h3>
+           
+          <% @categories.each do |category| %>
+            <div class="inner-box">
+              <h4><a><%= category.name %> :
+              <%= category.posts.count %></h4>
+              
+            </div>
+          
+            <% end %>
+          </div>
+            
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+       
+        <p>
+          2024 建北電資寒訓 - 一小成發
+        </p>
+        <p>我覺得還有蠻多地方可以進步的 :D</p>
+        <a href="https://www.instagram.com/ianwen_lan1105/">
+          有問題請聯絡開發人員
+        </a>
+      </div>
+    </footer>
+    <div class="overlay">
+      <div class="login" id="login">
+        <div class="top">
+          <h2>Log in</h2>
+          <i class="fa-solid fa-xmark close"></i>
+        </div>
+        <div class="row">
+          <div class="content">
+            
+            <div class="login-left">
+              <form action="#">
+                <input type="text" placeholder="Username" />
+                <div class="form-group">
+                  <input type="password" placeholder="Password" />
+                  <div><i class="fa-regular fa-eye"></i> <span>Show</span></div>
+                </div>
+                <div class="remember">
+                  <input type="checkbox" name="remember" value="1" checked />
+                  <label for="remember">Stay logged in</label>
+                </div>
+                <button type="submit" class="btn btn-red">Log in</button>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <%= javascript_importmap_tags 'index.js' %>
+  </body>
+</html>
+
+
+
