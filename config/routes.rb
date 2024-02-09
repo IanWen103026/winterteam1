@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get "/posts/:id/edit", to: "posts#edit", as: :edit_post
   patch "/posts/:id", to: "posts#update"
   delete "/posts/:id", to: "posts#destroy"
-
+  resources :posts do
+    resources :comments # 嵌套留言在文章下
+  end
   # Defines the root path route ("/")
   # root "posts#index"
 end

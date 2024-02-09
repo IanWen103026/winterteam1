@@ -13,11 +13,18 @@
     </div>
     <div class="field">
   <%= form.label :category_id, "Category" %>
+  <br>
   <% if @categories %>
-    <%= form.collection_select :category_id, @categories, :id, :name, prompt: "Select a category" %>
+    <%= form.collection_select :category_id, @categories, :id, :name, prompt: "選擇文章分類" %>
   <% else %>
   <% end %>
+  
 </div>
-
-    <%= form.button %>
+<br>
+  <%= form.button "送出文章", class: "btn"  %>
+  
+  <% if @delete %>
+  <% else %>
+  <%= button_to "刪除文章", @post, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: "btn" %>
+  <% end %>
 <%end%>

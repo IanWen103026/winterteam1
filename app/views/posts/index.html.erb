@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -43,17 +43,18 @@
                   <a href="#">  
                     <% if user_signed_in? %> 
                     
-                    <a href="/posts/new">發文</a>
+                      <a href="/posts/new"><strong>發文</a>
                                          
-                    <span><%=link_to "登出", destroy_user_session_path, method: :delete%></span>
+                    <span><strong><%=link_to "登出", destroy_user_session_path, method: :delete%></span>
+
          
-                    <span><%=link_to "設定", edit_user_registration_path%></span>
+                    <span><strong><%=link_to "設定", edit_user_registration_path%></span>
                     
                     <i class="fa-solid fa-user"></i>
                           
                     <% else %>
-                    <span><%=link_to "登入", new_user_session_path%></span>
-                    <span><%=link_to "註冊", new_user_registration_path%></span>
+                      <span><strong><%=link_to "登入", new_user_session_path%></span>
+                      <span><strong><%=link_to "註冊", new_user_registration_path%></span>
                     <% end %>  
 
                   </a>
@@ -87,6 +88,7 @@
                 <h3><%= link_to post.title, post %></h3>
                 <div class="sub-details">
                   <span>發文者: <%= post.display_author %></span>
+                  <span><%= post.created_at %></span>
                 </div>
               </div>
               
@@ -182,20 +184,53 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     
     <script>
-  $(document).ready(function() {
+      $(document).ready(function() {
+            
+
+
+
+                            const hours = new Date().getHours();
+
+                            const isDayTime = hours > 6 && hours < 18;
+
+                            const header = document.getElementById('header');
+
+                            if (isDayTime) {
+                                                              header.style.backgroundImage = 'url("https://cdn.discordapp.com/attachments/1158924708352364596/1203662105211969566/image.png?ex=65d1e8b0&is=65bf73b0&hm=59e3c47414857463dcfdc22b29862786ebbeb651f30360f4ac36abd9db4dcb01&")';
+                                                        } else {
+                                                                                                header.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/1158924708352364596/1203661631641362443/image.png?ex=65d1e83f&is=65bf733f&hm=a31682ca2282a569530441790867acc50e81c79e0e2119e908a0e5bb0d58a1cf&)';
+                                                                                          }
+
     $("#search-input").on("input", function() {
-      var searchTerm = $(this).val().toLowerCase();
+            
+
+            var searchTerm = $(this).val().toLowerCase();
 
       $(".box").each(function() {
         var title = $(this).find("h3").text().toLowerCase();
-
-        if (title.includes(searchTerm)) {
+        var cate = $(this).find("p").text().toLowerCase();
+        if (title.includes(searchTerm) || cate.includes(searchTerm)) {
           $(this).show();
         } else {
           $(this).hide();
         }
       });
-    });
+          });
+
+              setInterval(() => {
+
+                                    const hours = new Date().getHours();
+
+                                    const isDayTime = hours > 6 && hours < 18;
+
+                                    const header = document.getElementById('header');
+
+                                    if (isDayTime) {
+                                                                      header.style.backgroundImage = 'url("https://cdn.discordapp.com/attachments/1158924708352364596/1203662105211969566/image.png?ex=65d1e8b0&is=65bf73b0&hm=59e3c47414857463dcfdc22b29862786ebbeb651f30360f4ac36abd9db4dcb01&")';
+                                                                } else {
+                                                                                                        header.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/1158924708352364596/1203661631641362443/image.png?ex=65d1e83f&is=65bf733f&hm=a31682ca2282a569530441790867acc50e81c79e0e2119e908a0e5bb0d58a1cf&)';
+                                                                                                  }
+              }, 10_000);
   });
 </script>
 

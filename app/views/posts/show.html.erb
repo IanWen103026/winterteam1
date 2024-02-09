@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -58,29 +58,75 @@
       <div class="container">
         <div class="row">
           <section class="left">
-            <h2><%=@post.title%> </h2>
+            <h1 style="color: #ffdd69"><%=@post.title%> </h2>
+            <br>
             <h4>文章分類:  <%= @post.category.present? ? @post.category.name : '無分類' %></h4>
             <h4>發文者: <%= @post.display_author %></h4>
             <br>
             <div class="inner-left">
               <div class="box2">
 <div>
-    <%=@post.body%>
+<%= @post.formatted_body %>
+
     </div>
     
               </div>
 
             </div>
-            
+            <br>
             <% if user_signed_in? && (current_user.email == @post.display_author || current_user.email == "ianwen3.gt@gmail.com") %>
-            <h1>修改文章</h1>
-
+            <h1 style="color: #ffdd69">修改文章</h1>
+            <br>
+            
+            <div class="inner-left">
+            <div class="box2">
             <%= render partial: "form", locals: { post: @post } %>
             
-              <%= button_to "Edit", edit_post_path(@post), method: :get %>
-              <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+              
+              
             <% end %>
+            </div>
             
+            </div>
+            
+            <div class="comments">
+            <br>
+
+  <h1 style="color: #ffdd69">留言區</h1>
+  <br>
+  
+            
+  <div class="inner-left">
+  <div class="box2">
+  <%= form_with(model: [@post, Comment.new], url: post_comments_path(@post)) do |form| %>
+    <div class="form-group">
+      <%= form.text_area :content, class: "form-control" %>
+    </div>
+    <%= form.submit "送出留言", class: "btn" %>
+  <% end %>
+
+  </div>
+            
+  </div>
+  
+    
+  <div class="inner-left">
+  
+  <% @post.comments.each do |comment| %>
+  <div class="box">
+    <div class="comment">
+      <h4><%= comment.content %></h4>
+      <p>By: <%= comment.user.email %> ID: <%= comment.id %></p>
+    </div>
+    
+  </div>
+  <% end %>
+  
+            
+  </div>
+  
+</div>
+
           </section>
           <section class="right">
             <div class="box first">
@@ -163,5 +209,50 @@
       </div>
     </div>
     <%= javascript_importmap_tags 'index.js' %>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+            $(document).ready(function() {
+
+                                  const hours = new Date().getHours();
+
+                                  const isDayTime = hours > 6 && hours < 18;
+
+                                  const header = document.getElementById('header');
+
+                                  if (isDayTime) {
+                                                                    header.style.backgroundImage = 'url("https://cdn.discordapp.com/attachments/1158924708352364596/1203662105211969566/image.png?ex=65d1e8b0&is=65bf73b0&hm=59e3c47414857463dcfdc22b29862786ebbeb651f30360f4ac36abd9db4dcb01&")';
+                                                              } else {
+                                                                                                      header.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/1158924708352364596/1203661631641362443/image.png?ex=65d1e83f&is=65bf733f&hm=a31682ca2282a569530441790867acc50e81c79e0e2119e908a0e5bb0d58a1cf&)';
+                                                                                                }
+
+                        $("#search-input").on("input", function() {
+                                      var searchTerm = $(this).val().toLowerCase();
+
+                                      $(".box").each(function() {
+                                                      var title = $(this).find("h3").text().toLowerCase();
+                                                      var cate = $(this).find("p").text().toLowerCase();
+                                                      if (title.includes(searchTerm) || cate.includes(searchTerm)) {
+                                                                        $(this).show();
+                                                                      } else {
+                                                                                        $(this).hide();
+                                                                                      }
+                                                    });
+                              });
+                                 setInterval(() => {
+
+                                                                             const hours = new Date().getHours();
+
+                                                                             const isDayTime = hours > 6 && hours < 18;
+
+                                                                             const header = document.getElementById('header');
+
+                                                                             if (isDayTime) {
+                                                                                                                                                           header.style.backgroundImage = 'url("https://cdn.discordapp.com/attachments/1158924708352364596/1203662105211969566/image.png?ex=65d1e8b0&is=65bf73b0&hm=59e3c47414857463dcfdc22b29862786ebbeb651f30360f4ac36abd9db4dcb01&")';
+                                                                                                                                                     } else {
+                                                                                                                                                                                                                                                                     header.style.backgroundImage = 'url(https://cdn.discordapp.com/attachments/1158924708352364596/1203661631641362443/image.png?ex=65d1e83f&is=65bf733f&hm=a31682ca2282a569530441790867acc50e81c79e0e2119e908a0e5bb0d58a1cf&)';
+                                                                                                              }
+                          }, 10_000);
+                      });
+    </script>
   </body>
 </html>

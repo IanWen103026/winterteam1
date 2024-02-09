@@ -12,12 +12,17 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         
       @posts = Post.all
+      allowed_tags = %w[strong em b i p code pre tt samp kbd var sub sup dfn cite big small address hr br div span h1 h2 h3 h4 h5 h6 ul ol li dl dt dd abbr acronym a img blockquote del ins]
+      @post.body = ActionController::Base.helpers.sanitize(@post.body, tags: allowed_tags, attributes: [])
         @categories = Category.all
       end
       
   
     def update
       @post = Post.find(params[:id])
+      
+      allowed_tags = %w[strong em b i p code pre tt samp kbd var sub sup dfn cite big small address hr br div span h1 h2 h3 h4 h5 h6 ul ol li dl dt dd abbr acronym a img blockquote del ins]
+      @post.body = ActionController::Base.helpers.sanitize(@post.body, tags: allowed_tags, attributes: [])
       if @post.update(post_params)
         redirect_to @post
       else
@@ -32,15 +37,21 @@ class PostsController < ApplicationController
     end
   
     def new
-        
+      @delete = true
       @posts = Post.all
         @post = Post.new
+        
+      allowed_tags = %w[strong em b i p code pre tt samp kbd var sub sup dfn cite big small address hr br div span h1 h2 h3 h4 h5 h6 ul ol li dl dt dd abbr acronym a img blockquote del ins]
+      @post.body = ActionController::Base.helpers.sanitize(@post.body, tags: allowed_tags, attributes: [])
         @categories = Category.all
       end
       
   
       def create
         @post = Post.new(post_params.merge(author: current_user.email))
+        
+      allowed_tags = %w[strong em b i p code pre tt samp kbd var sub sup dfn cite big small address hr br div span h1 h2 h3 h4 h5 h6 ul ol li dl dt dd abbr acronym a img blockquote del ins]
+      @post.body = ActionController::Base.helpers.sanitize(@post.body, tags: allowed_tags, attributes: [])
         if @post.save
           redirect_to @post
         else
@@ -51,6 +62,9 @@ class PostsController < ApplicationController
       
     def edit
       @post = Post.find(params[:id])
+      
+      allowed_tags = %w[strong em b i p code pre tt samp kbd var sub sup dfn cite big small address hr br div span h1 h2 h3 h4 h5 h6 ul ol li dl dt dd abbr acronym a img blockquote del ins]
+      @post.body = ActionController::Base.helpers.sanitize(@post.body, tags: allowed_tags, attributes: [])
     end
   
     private

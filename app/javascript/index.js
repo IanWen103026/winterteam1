@@ -1,4 +1,16 @@
-// 在application.js或其他適當的JavaScript文件中
+
+const hours = new Date().getHours();
+
+const isDayTime = hours > 6 && hours < 20;
+
+const header = document.getElementById('header');
+
+if (isDayTime) {
+	    header.style.backgroundImage = 'url("daytime.jpg")';
+} else {
+	    header.style.backgroundImage = 'url("nighttime.jpg")';
+}
+
 
 const join = document.querySelector(".join"),
   overlay = document.querySelector(".overlay"),
